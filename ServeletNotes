@@ -1,0 +1,108 @@
+Introduction:
+* Servelets are the java programs thats runs on java enabled web servers 
+* Used to handle the request from the server,process the request,
+produce the responce then send responce back to server
+
+Execution:
+* The clients send the request to the web server.
+* The web server receives the request.
+* The web server passes the request to the corresponding servlet.
+* The servlet processes the request and generates the response in the form of output.
+* The servlet sends the response back to the web server.
+* The web server sends the response back to the client and the client browser displays it on the screen.
+
+
+*The server-side extensions are nothing but the technologies that are used to create dynamic Web pages.
+* Web pages, Web pages need a container or Web server
+* Java Servlet is also one of the component APIs of Java Platform Enterprise Edition which sets standards for creating dynamic Web applications in Java.
+* The servelet technology is similar to other web server extension such as CGI-Common gateawy Interface
+script and PHP-Preprocessor Hypertext
+
+* CGI-> responsible for processing client requests and generating dynamic content.
+* In CGI Application- The webserver performs
+-->1st locate the requested webpage
+-->Then creates new process to service and client request
+-->Invoke the cgi application within thr process and passes request info to the server
+-->Collects the response from CGI application.
+-->Destroys the process, prepares the HTTP response and sends it to the client.
+
+* Difference
+Servlets are portable and efficient.	  	CGI is not portable
+In Servlets, sharing of data is possible.	In CGI, sharing of data is not possible.
+Servlets can directly communicate with		CGI cannot directly communicate with the web server.
+ the web server.	
+Servlets are less expensive than CGI.		CGI are more expensive than Servlets.
+Servlets can handle the cookies.		CGI cannot handle the cookies.
+
+
+
+Advantages
+-->Servlet is faster than CGI
+-->Servlets as written in Java are platform independent.
+-->It is a server-side component, so Servlet inherits the security provided by the Web server.
+
+
+
+Servlet Life cycle:
+* Maneged by servlet container
+* Stages of servelet life cycle
+--> Loading a servlett
+	Loading and initializing the servlet by servlet container
+	The Servlet container performs two operations in this stage :
+	* Loads the servlet class
+	* Creates an instance of the Servlet. 
+-->Initializing the servlet
+	Servlet container initializes the instantiated servlet object
+	The web container calls the init() method only once after creating the servlet instance
+init() method is used to initialize the servlet
+-->Request handling
+	After initialization, the Servlet instance is ready to serve the client requests.
+	The web container calls the service method each time when request for the servlet is received
+	if servlet is initialized then web container calls the service method
+	SErvlet container performs:
+	It creates the ServletRequest and ServletResponse objects. In this case, if this is a HTTP request, then 	the Web container creates HttpServletRequest and HttpServletResponse
+	fter creating the request and response objects it invokes the Servlet.service method
+-->Destroying the servlet
+	SErvlet Container performs:
+	It allows all the threads currently running in the service method of the Servlet instance to complete 		their jobs.
+	After currently running threads have completed their jobs, the Servlet container calls the destroy() 		method 
+
+init()-->
+init() method
+
+public class MyServlet implements Servlet{
+   public void init(ServletConfig config) throws ServletException {
+        //initialization code
+   }
+
+service() method
+
+public class MyServlet implements Servlet{
+    public void service(ServletRequest res, ServletResponse res)
+    throws ServletException, IOException {
+            // request handling code
+    }
+    // rest of code
+}
+
+The servlet life cycle consists these stages:
+
+Servlet is borned
+Servlet is initialized
+Servlet is ready to service
+Servlet is servicing
+Servlet is not ready to service
+Servlet is destroyed
+
+
+Generic servlet:
+
+
+
+
+
+
+
+
+
+
